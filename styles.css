@@ -30,3 +30,48 @@ html[data-theme="dark"] .stat{background:#25412f}
 html[data-theme="dark"] .review{border-color:#3b5443}
 html[data-theme="dark"] .review b{color:#98e2b7}
 @media(max-width:700px){header .wrap{flex-wrap:wrap}#theme-toggle{margin-left:0}}
+
+/* Small-screen enhancements: touch targets, safe areas, narrow screens */
+html{min-width:280px;-webkit-text-size-adjust:100%}
+button,select{min-height:44px;touch-action:manipulation}
+.opt{width:100%;overflow-wrap:anywhere}
+#quiz .question{margin-top:16px}
+header .wrap{min-width:0}
+.header-title{min-width:0;flex:1}
+.header-title small{display:block}
+#counter{font-weight:700}
+pre{max-width:100%;overflow-x:auto;white-space:pre-wrap;tab-size:4}
+footer{padding-bottom:max(22px,env(safe-area-inset-bottom))}
+@media(max-width:700px){
+  .wrap{width:calc(100% - 24px)}
+  header{padding:16px 0}
+  header .wrap{gap:10px}
+  header .brand{padding:8px}
+  h1{font-size:clamp(19px,5.5vw,26px)}
+  .header-title small{font-size:11px}
+  #theme-toggle{margin-left:auto;padding:9px 11px;font-size:13px}
+  main{padding-top:14px;padding-bottom:36px}
+  .panel,.question,.result{padding:16px;border-radius:13px}
+  .question h2{font-size:clamp(19px,5vw,24px)}
+  .opts{grid-template-columns:1fr}
+  .opt{min-height:62px;padding:13px;align-items:center}
+  .foot{align-items:stretch}
+  .foot>.buttons{flex:1;justify-content:flex-end}
+  .stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+  .stat{padding:10px 8px;font-size:12px;text-align:center;min-width:0}
+  .stat b{font-size:21px}
+  .navline{align-items:center}
+  .navline button{padding:9px 11px}
+}
+@media(max-width:420px){
+  .header-inner{display:grid!important;grid-template-columns:auto minmax(0,1fr);gap:8px 10px!important}
+  #theme-toggle{grid-column:1/-1;width:100%;margin:0}
+  .actions>button{width:100%}
+  .foot{display:grid;grid-template-columns:1fr}
+  .foot>.buttons{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .foot>.buttons:has(>button:only-child){grid-template-columns:1fr}
+  .foot button{padding:10px 8px}
+  .navline{display:grid;grid-template-columns:1fr}
+  .navline button{width:100%}
+}
+@media(prefers-reduced-motion:reduce){.progress>div{transition:none}}

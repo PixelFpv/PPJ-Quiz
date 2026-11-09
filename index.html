@@ -1,6 +1,62 @@
-<!DOCTYPE html><html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PPJ — trening do kolokwium</title><link rel="stylesheet" href="styles.css"></head><body><header><div class="wrap"><strong>PPJ</strong><div><h1>Trening do kolokwium</h1><small>Java · podstawy · warunki · pętle · tablice</small></div><button type="button" id="theme-toggle">☾ Ciemny motyw</button></div></header><main class="wrap">
-<section class="panel" id="settings"><h2>Ustawienia quizu</h2><div class="controls"><div><label class="formlabel" for="bank">Baza pytań</label><select id="bank"><option value="canonical">Tylko kanoniczne (ze screenów)</option><option value="extra">Tylko moje dodatkowe</option><option value="all" selected>Wszystkie pytania</option></select></div><div><label class="formlabel" for="category">Zakres</label><select id="category"><option value="all">Wszystkie działy</option><option>Podstawy i operatory</option><option>Warunki, pętle i algorytmy</option><option>Tablice jednowymiarowe</option></select></div><div><label class="formlabel" for="count">Liczba pytań</label><select id="count"><option value="all">Wszystkie dostępne</option><option value="10">10 losowych</option><option value="20">20 losowych</option><option value="30">30 losowych</option><option value="40">40 losowych</option></select></div></div><div class="buttons"><label class="check"><input type="checkbox" id="shuffle" checked> Losowa kolejność</label><label class="check"><input type="checkbox" id="immediate"> Sprawdzaj od razu</label></div><div class="buttons"><button class="primary" id="start">Rozpocznij nowy test</button><button id="resume" class="hidden">Wznów zapisany test</button><button id="clear">Wyczyść zapisany postęp</button></div><p class="hint" id="dbsummary"></p></section>
-<section id="quiz" class="hidden"><div class="navline"><span id="counter"></span><button id="backsettings">Ustawienia / nowy test</button></div><div class="progress"><div id="bar"></div></div><div class="question" id="question" style="margin-top:16px"></div></section>
-<section class="result hidden" id="result"></section></main><footer>PPJ · GitHub Pages · Postęp zapisywany lokalnie w przeglądarce</footer>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#19392e">
+  <meta name="description" content="PPJ Java practice quiz. Review canonical and additional questions for your exam.">
+  <title>PPJ Quiz — Java Exam Practice</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <div class="wrap header-inner">
+    <strong class="brand">PPJ</strong>
+    <div class="header-title"><h1>Java Exam Practice</h1><small>Basics · Operators · Conditions · Loops · Arrays</small></div>
+    <button type="button" id="theme-toggle" aria-label="Switch theme">☾ Dark mode</button>
+  </div>
+</header>
+<main class="wrap">
+  <section class="panel" id="settings" aria-labelledby="settings-title">
+    <h2 id="settings-title">Quiz settings</h2>
+    <div class="controls">
+      <div><label class="formlabel" for="bank">Question bank</label><select id="bank">
+        <option value="canonical">Canonical questions (screenshots only)</option>
+        <option value="extra">Additional practice questions</option>
+        <option value="all" selected>All questions</option>
+      </select></div>
+      <div><label class="formlabel" for="category">Topic</label><select id="category">
+        <option value="all">All topics</option>
+        <option value="Podstawy i operatory">Basics and operators</option>
+        <option value="Warunki, pętle i algorytmy">Conditions, loops and algorithms</option>
+        <option value="Tablice jednowymiarowe">One-dimensional arrays</option>
+      </select></div>
+      <div><label class="formlabel" for="count">Number of questions</label><select id="count">
+        <option value="all">All available</option>
+        <option value="10">10 random questions</option><option value="20">20 random questions</option>
+        <option value="30">30 random questions</option><option value="40">40 random questions</option>
+      </select></div>
+    </div>
+    <div class="buttons toggles">
+      <label class="check"><input type="checkbox" id="shuffle" checked> Shuffle questions</label>
+      <label class="check"><input type="checkbox" id="immediate"> Check each answer immediately</label>
+    </div>
+    <div class="buttons actions">
+      <button class="primary" id="start">Start new quiz</button>
+      <button id="resume" class="hidden">Resume saved quiz</button>
+      <button id="clear">Clear saved progress</button>
+    </div>
+    <p class="hint" id="dbsummary" aria-live="polite"></p>
+  </section>
+  <section id="quiz" class="hidden" aria-label="Quiz">
+    <div class="navline"><span id="counter" aria-live="polite"></span><button id="backsettings">Settings / new quiz</button></div>
+    <div class="progress" role="progressbar" aria-label="Answers completed" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div id="bar"></div></div>
+    <div class="question" id="question"></div>
+  </section>
+  <section class="result hidden" id="result" aria-live="polite"></section>
+</main>
+<footer>PPJ · GitHub Pages · Progress is saved in your browser</footer>
 <script src="questions.js" defer></script>
-<script src="app.js" defer></script></body></html>
+<script src="app.js" defer></script>
+</body>
+</html>
